@@ -41,7 +41,6 @@ docker-compose up -d
 docker compose ps
 
 ## 3. Cấu trúc thư mục dự án
-```bash
 DTC245200573-Hotel-Booking/
 ├── docker-compose.yml          # Cấu hình khởi chạy các container dịch vụ & networks
 ├── .env.example                # File mẫu biến môi trường (không chứa mật khẩu thật)
