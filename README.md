@@ -5,33 +5,37 @@ Môn học: Triển khai và Quản trị Hệ thống Phần mềm
 
 ---
 
-### 1. Giới thiệu hệ thống
+## 1. Giới thiệu và thông tin sinh viên
 
-Dự án xây dựng và triển khai hệ thống quản lý **Đặt phòng Khách sạn** (quản lý thông tin loại phòng, trạng thái phòng trống, danh sách đặt chỗ và quản lý khách hàng) chuẩn hóa hạ tầng DevOps/Containerization.
-
-Hệ thống bao gồm các thành phần:
-* **Ứng dụng Web & CSDL:** Python/Django (hoặc Node.js) kết hợp **PostgreSQL** và **pgAdmin**.
-* **Cổng kết nối:** Nginx Reverse Proxy bảo mật **HTTPS** (SSL tự ký) và HTTP Security Headers.
-* **Giám sát Metrics:** **Prometheus + Grafana** (theo dõi tài nguyên container, web server, DB).
-* **Quản lý Log tập trung:** **Loki + Promtail** (đẩy log container và tra cứu bằng LogQL).
-* **An ninh hệ thống:** Áp dụng 6 biện pháp Hardening bảo vệ toàn diện.
+- **Sinh viên thực hiện:** Lý Kiều Trang
+- **Mã số sinh viên (MSSV):** DTC245200573
+- **Lớp:** CNTT K23C
+- **Email:** DTC245200573@ictu.edu.vn
+- **Mô tả đề tài:** Dự án xây dựng và triển khai hệ thống phần mềm Quản lý Đặt phòng Khách sạn phục vụ khách hàng và quản lý phòng nghỉ theo chuẩn DevOps. Hệ thống được đóng gói dạng Microservices/Containerized trên Docker Compose, tích hợp cổng Nginx Reverse Proxy bảo mật HTTPS, giám sát số liệu thời gian thực (Prometheus & Grafana), quản lý log tập trung và áp dụng các biện pháp Hardening bảo vệ toàn diện.
 
 ---
 
-### 2. Hướng dẫn khởi chạy hệ thống
-1. Clone repository
-git clone https://github.com/dtc245200573-droid/DTC245200573-Hotel-Booking.git
+## 2. Hướng dẫn khởi chạy hệ thống
+
+Triển khai hệ thống theo trình tự chuẩn hóa các bước dưới đây:
+
+```bash
+# Bước 1: Sao chép mã nguồn dự án từ GitHub
+git clone [https://github.com/dtc245200573-droid/DTC245200573-Hotel-Booking.git](https://github.com/dtc245200573-droid/DTC245200573-Hotel-Booking.git)
+
+# Bước 2: Di chuyển vào thư mục dự án
 cd DTC245200573-Hotel-Booking
 
-2. Tạo biến môi trường
+# Bước 3: Tạo file cấu hình biến môi trường và điền mật khẩu
 cp .env.example .env
+chmod 600 .env
 
-3. Tạo chứng chỉ SSL tự ký cho Nginx
+# Bước 4: Tự động khởi tạo chứng chỉ SSL tự ký cho Nginx HTTPS
 chmod +x nginx/gen-cert.sh
 ./nginx/gen-cert.sh
 
-4. Khởi chạy toàn bộ hệ thống bằng Docker Compose
+# Bước 5: Khởi chạy toàn bộ hệ thống dịch vụ bằng Docker Compose
 docker-compose up -d
 
-5. Kiểm tra trạng thái các container
+# Bước 6: Kiểm tra trạng thái toàn bộ container hoạt động bình thường
 docker compose ps
