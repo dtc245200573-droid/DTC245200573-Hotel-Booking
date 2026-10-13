@@ -41,7 +41,7 @@ docker-compose up -d
 docker compose ps
 
 ## 3. Cấu trúc thư mục dự án
-Plaintext
+```bash
 DTC245200573-Hotel-Booking/
 ├── docker-compose.yml          # Cấu hình khởi chạy các container dịch vụ & networks
 ├── .env.example                # File mẫu biến môi trường (không chứa mật khẩu thật)
@@ -68,5 +68,4 @@ DTC245200573-Hotel-Booking/
 └── scripts/
     └── hardening_evidence.sh   # Script tự động kiểm tra và xuất bảng chứng 6 biện pháp Hardening
 
----
 
