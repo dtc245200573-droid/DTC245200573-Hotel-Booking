@@ -39,3 +39,56 @@ docker-compose up -d
 
 # Bước 6: Kiểm tra trạng thái toàn bộ container hoạt động bình thường
 docker compose ps
+
+3. Cấu trúc thư mục dự án
+Plaintext
+DTC245200573-Hotel-Booking/
+├── docker-compose.yml          # Cấu hình khởi chạy các container dịch vụ & networks
+├── .env.example                # File mẫu biến môi trường (không chứa mật khẩu thật)
+├── .gitignore                  # Khai báo loại trừ file bí mật (.env, private keys, log)
+├── README.md                   # Tài liệu hướng dẫn triển khai và kiến trúc hệ thống
+├── db/
+│   └── init.sql                # Khởi tạo schema CSDL đặt phòng, cấp quyền và dữ liệu mẫu
+├── web/
+│   ├── Dockerfile              # Dockerfile đóng gói ứng dụng Đặt phòng Khách sạn
+│   ├── security.ini            # Cấu hình bảo mật ứng dụng
+│   └── src/                    # Mã nguồn ứng dụng Web Đặt phòng Khách sạn
+├── nginx/
+│   ├── nginx.conf              # Cấu hình Reverse Proxy, HTTPS, Security Headers, Rate Limit
+│   ├── gen-cert.sh             # Script tự động tạo chứng chỉ SSL tự ký
+│   └── certs/                  # Thư mục lưu trữ chứng chỉ SSL (server.crt, server.key)
+├── prometheus/
+│   └── prometheus.yml          # Cấu hình targets cào metrics định kỳ cho Prometheus
+├── grafana/
+│   └── provisioning/           # Cấu hình nạp tự động Datasource, Dashboards và Alerting
+├── loki/
+│   └── loki-config.yaml        # Cấu hình dịch vụ lưu trữ log Loki
+├── promtail/
+│   └── promtail-config.yaml    # Cấu hình thu thập log container gửi về Loki
+└── scripts/
+    └── hardening_evidence.sh   # Script tự động kiểm tra và xuất bảng chứng 6 biện pháp Hardening
+
+---
+
+### Các bước đẩy lên GitHub và dán vào Word:
+
+<Steps>
+  <Step subtitle="Bước 1" title="Cập nhật file README.md">
+    Mở file `README.md` trong thư mục dự án ở máy tính, dán toàn bộ đoạn mã ở trên vào rồi bấm **Ctrl + S** để lưu lại.
+  </Step>
+
+  <Step subtitle="Bước 2" title="Chạy lệnh Git">
+    Mở cửa sổ **Git Bash** tại thư mục dự án và gõ các lệnh:
+    ```bash
+    git add README.md
+    git commit -m "docs: add section 3 folder structure in README"
+    git push origin main
+    ```
+  </Step>
+
+  <Step subtitle="Bước 3" title="Chụp ảnh chèn vào Word">
+    Mở trình duyệt vào trang GitHub dự án, nhấn **F5**, cuộn màn hình xuống bạn sẽ thấy xuất hiện đủ cả 3 mục (1. Giới thiệu, 2. Hướng dẫn, 3. Cấu trúc thư mục)! 
+    
+    Chụp màn hình trang GitHub này dán vào vị trí **Hình 1.2.3** trong file Word báo cáo của bạn là hoàn chỉnh 100% giống Hưng[cite: 17]!
+  </Step>
+</Steps>
