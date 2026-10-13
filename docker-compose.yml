@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  web:
+    image: strm/helloworld-http
+    container_name: hotel_web
+    restart: always
+    networks:
+      - frontend-net
+      - backend-net
+
+  db:
+    image: postgres:15-alpine
+    container_name: hotel_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: hotel_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: StrongPassword123!
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend-net
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: hotel_pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@hotel.com
+      PGADMIN_DEFAULT_PASSWORD: AdminPassword123!
+    ports:
+      - "5050:80"
+    networks:
+      - frontend-net
+      - backend-net
+
+  nginx:
+    image: nginx:alpine
+    container_name: hotel_nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - web
+    networks:
+      - frontend-net
+
+volumes:
+  postgres_data:
+
+networks:
+  frontend-net:
+  backend-net:
