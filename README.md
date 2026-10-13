@@ -40,7 +40,7 @@ docker-compose up -d
 # Bước 6: Kiểm tra trạng thái toàn bộ container hoạt động bình thường
 docker compose ps
 
-3. Cấu trúc thư mục dự án
+## 3. Cấu trúc thư mục dự án
 Plaintext
 DTC245200573-Hotel-Booking/
 ├── docker-compose.yml          # Cấu hình khởi chạy các container dịch vụ & networks
@@ -70,25 +70,3 @@ DTC245200573-Hotel-Booking/
 
 ---
 
-### Các bước đẩy lên GitHub và dán vào Word:
-
-<Steps>
-  <Step subtitle="Bước 1" title="Cập nhật file README.md">
-    Mở file `README.md` trong thư mục dự án ở máy tính, dán toàn bộ đoạn mã ở trên vào rồi bấm **Ctrl + S** để lưu lại.
-  </Step>
-
-  <Step subtitle="Bước 2" title="Chạy lệnh Git">
-    Mở cửa sổ **Git Bash** tại thư mục dự án và gõ các lệnh:
-    ```bash
-    git add README.md
-    git commit -m "docs: add section 3 folder structure in README"
-    git push origin main
-    ```
-  </Step>
-
-  <Step subtitle="Bước 3" title="Chụp ảnh chèn vào Word">
-    Mở trình duyệt vào trang GitHub dự án, nhấn **F5**, cuộn màn hình xuống bạn sẽ thấy xuất hiện đủ cả 3 mục (1. Giới thiệu, 2. Hướng dẫn, 3. Cấu trúc thư mục)! 
-    
-    Chụp màn hình trang GitHub này dán vào vị trí **Hình 1.2.3** trong file Word báo cáo của bạn là hoàn chỉnh 100% giống Hưng[cite: 17]!
-  </Step>
-</Steps>
