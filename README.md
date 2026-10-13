@@ -40,7 +40,10 @@ docker-compose up -d
 # Bước 6: Kiểm tra trạng thái toàn bộ container hoạt động bình thường
 docker compose ps
 
-## 3. Cấu trúc thư mục dự án
+
+
+## 7. Cấu trúc thư mục dự án
+
 DTC245200573-Hotel-Booking/
 ├── docker-compose.yml          # Cấu hình khởi chạy các container dịch vụ & networks
 ├── .env.example                # File mẫu biến môi trường (không chứa mật khẩu thật)
@@ -66,5 +69,3 @@ DTC245200573-Hotel-Booking/
 │   └── promtail-config.yaml    # Cấu hình thu thập log container gửi về Loki
 └── scripts/
     └── hardening_evidence.sh   # Script tự động kiểm tra và xuất bảng chứng 6 biện pháp Hardening
-
-
